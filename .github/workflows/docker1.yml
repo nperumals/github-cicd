@@ -20,9 +20,9 @@ on:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: docker.io   #ghcr.io
+  REGISTRY:    #ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: # houssemdellai/github-actions-course 
+  IMAGE_NAME: nperumals/test1 # houssemdellai/github-actions-course 
   # IMAGE_NAME: ${{ github.repository }} # returns HoussemDellai/github-actions-course : problem with uppercase
   IMAGE_TAG: 1.0.${{ github.run_number }} # GITHUB_RUN_NUMBER }}
 
