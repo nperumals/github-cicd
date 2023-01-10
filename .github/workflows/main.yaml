@@ -18,7 +18,7 @@ jobs:
           BRANCH=${GITHUB_REF##*/}
           TS=$(date +%s)
           REVISION=${GITHUB_SHA::8}
-          IMAGE_NAME="test1"
+          IMAGE_NAME="test1/${BRANCH}-front"
           BUILD_DATE="$(date -u +'%Y%m%dT%H%M%SZ')"
           BUILD_ID="$DOCKER_REGISTRY_NAMESPACE/${IMAGE_NAME}:${BUILD_DATE}-${REVISION}"
           LATEST_ID="$DOCKER_REGISTRY_NAMESPACE/${IMAGE_NAME}:latest"
