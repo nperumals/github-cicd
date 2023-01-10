@@ -1,4 +1,6 @@
-name: 052-docker-ghcr-workflow
+#name: 052-docker-ghcr-workflow
+name: docker1.yaml
+            
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -20,10 +22,10 @@ on:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: docker.io   #ghcr.io
+  REGISTRY: nperumals/test1   #ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: # houssemdellai/github-actions-course 
-  # IMAGE_NAME: ${{ github.repository }} # returns HoussemDellai/github-actions-course : problem with uppercase
+#  IMAGE_NAME: nperumals/test1   #houssemdellai/github-actions-course 
+  IMAGE_NAME: ${{ github.repository }} # returns HoussemDellai/github-actions-course : problem with uppercase
   IMAGE_TAG: 1.0.${{ github.run_number }} # GITHUB_RUN_NUMBER }}
 
 
@@ -84,6 +86,9 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} # ${{ steps.meta.outputs.tags }}
           # tags: ghcr.io/houssemdellai/github-actions-course:${{ env.IMAGE_TAG }} # ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+                              
+                                     
+
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
