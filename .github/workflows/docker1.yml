@@ -9,20 +9,20 @@ on:
   # schedule:
   #   - cron: '30 22 * * *'
   push:
-    branches: none # [ main ]
+    branches: staging # [ main ]
     # Publish semver tags as releases.
-    tags: none # [ 'v*.*.*' ]
+    tags: 'v*.*.*' # [ 'v*.*.*' ]
   pull_request:
-    branches: none # [ main ]
+    branches: preprod # [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
+  REGISTRY: docker.io   #ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: houssemdellai/github-actions-course 
+  IMAGE_NAME: # houssemdellai/github-actions-course 
   # IMAGE_NAME: ${{ github.repository }} # returns HoussemDellai/github-actions-course : problem with uppercase
   IMAGE_TAG: 1.0.${{ github.run_number }} # GITHUB_RUN_NUMBER }}
 
