@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:  
+      DOCKER_REGISTRY_NAMESPACE: nperumals
     steps:
       - 
         name: Prepare build ids
@@ -38,9 +40,6 @@ jobs:
         uses: docker/setup-buildx-action@v2
       -
         name: Build and push
-        env:  
-      DOCKER_REGISTRY_NAMESPACE: nperumals
-
         uses: docker/build-push-action@v3
         with:
           context: .
