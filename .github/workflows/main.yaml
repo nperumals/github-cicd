@@ -9,6 +9,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - 
+        name: Prepare build ids
+        id: prep
+        run: |
+          BRANCH=${GITHUB_REF##*/}
+          TS=$(date +%s)
+          REVISION=${GITHUB_SHA::8}
+          IMAGE_NAME="abc-admin/${BRANCH}-front"
+          BUILD_DATE="$(date -u +'%Y%m%dT%H%M%SZ')"
+          BUILD_ID="${IMAGE_NAME}:${BUILD_DATE}-${REVISION}"
+          LATEST_ID="${IMAGE_NAME}:latest"
+          echo "BRANCH=${BRANCH}" >> $GITHUB_OUTPUT
+          echo "BUILD_DATE=${BUILD_DATE}" >> $GITHUB_OUTPUT
+          echo "BUILD_ID=${BUILD_ID}" >> $GITHUB_OUTPUT
+          echo "LATEST_ID=${LATEST_ID}" >> $GITHUB_OUTPUT          
       -
         name: Checkout
         uses: actions/checkout@v3
@@ -29,4 +44,5 @@ jobs:
           file: ./Dockerfile
           push: true
 #          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/test1:latest
+#          tags: ${{ secrets.DOCKERHUB_USERNAME }}/test1:latest
+          tags: $DOCKER_REGISTRY_NAMESPACE/${{ steps.prep.outputs.BUILD_ID }} $DOCKER_REGISTRY_NAMESPACE/${{ steps.prep.outputs.LATEST_ID }}
