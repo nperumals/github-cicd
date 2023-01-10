@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:  
+      DOCKER_REGISTRY_NAMESPACE: rg.fr-par.scw.cloud
     steps:
       - 
         name: Prepare build ids
