@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:  
-      DOCKER_REGISTRY_NAMESPACE: rg.fr-par.scw.cloud
+      DOCKER_REGISTRY_NAMESPACE: nperumals
     steps:
       - 
         name: Prepare build ids
