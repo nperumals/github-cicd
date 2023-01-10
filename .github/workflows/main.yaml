@@ -48,5 +48,5 @@ jobs:
 #          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
 #          tags: ${{ secrets.DOCKERHUB_USERNAME }}/test1:latest
 #          tags: $DOCKER_REGISTRY_NAMESPACE/${{ steps.prep.outputs.BUILD_ID }} $DOCKER_REGISTRY_NAMESPACE/${{ steps.prep.outputs.LATEST_ID }}
-          tags: "nperumals/"${{ steps.prep.outputs.BUILD_ID }}
+          tags: ${{ steps.prep.outputs.BUILD_ID }}
 #          tags: "nperumals/"${{ steps.prep.outputs.LATEST_ID }}
