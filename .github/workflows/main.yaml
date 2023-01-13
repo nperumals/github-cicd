@@ -27,11 +27,11 @@ jobs:
         run: |
           # Set environment for branch
           if [[ $GITHUB_REF == 'refs/heads/main' ]]; then
- 		        ENVIRONMENT="production"
+             ENV1="production"
           else
-		        ENVIRONMENT=${GITHUB_REF##*/}
-          fi		  
-	      echo $ENVIRONMENT        
+             ENV1=${GITHUB_REF##*/}
+          fi  
+          echo $ENV1        
           BRANCH=${GITHUB_REF##*/}
           TS=$(date +%s)
           REVISION=${GITHUB_SHA::8}
