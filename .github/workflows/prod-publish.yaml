@@ -47,9 +47,7 @@ jobs:
         name: Login to Docker registry
         run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login $DOCKER_REG_NAMESPACE -u secrets.DOCKERHUB_USERNAME
 
-#        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login $DOCKER_REG_NAMESPACE -u secrets.DOCKERHUB_USERNAME password secrets.DOCKERHUB_TOKEN
-#        --password-stdin
-      -
+#      -
 #        name: Querying for Latest Docker Image
 #        run: |
         
