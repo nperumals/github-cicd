@@ -25,6 +25,13 @@ jobs:
         name: Prepare build ids
         id: prep
         run: |
+          # Set environment for branch
+          if [[ $GITHUB_REF == 'refs/heads/main' ]]; then
+ 		        ENVIRONMENT="production"
+          else
+		        ENVIRONMENT=${GITHUB_REF##*/}
+          fi		  
+	      echo $ENVIRONMENT        
           BRANCH=${GITHUB_REF##*/}
           TS=$(date +%s)
           REVISION=${GITHUB_SHA::8}
